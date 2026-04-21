@@ -1,0 +1,359 @@
+.page { max-width: 900px; }
+
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.calendarCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.calHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.monthTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.navBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.06);
+}
+
+.dayLabels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.dayLabel {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding: 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.emptyCell {
+  aspect-ratio: 1;
+}
+
+.cell {
+  aspect-ratio: 1;
+  min-height: 64px;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.cell:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-focus);
+  transform: scale(1.03);
+}
+.cell.hasTasks:hover {
+  box-shadow: var(--shadow-glow-cyan);
+}
+.cell.today {
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.06);
+}
+.cell.selected {
+  border-color: var(--accent-violet);
+  background: rgba(139, 92, 246, 0.1);
+  box-shadow: var(--shadow-glow-violet);
+}
+
+.dayNum {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.cell.today .dayNum {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+.cell.selected .dayNum {
+  color: var(--accent-violet);
+}
+
+.dotsRow {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.taskDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.taskCount {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  background: rgba(139, 149, 176, 0.1);
+  border-radius: var(--radius-full);
+  padding: 0 4px;
+  line-height: 1.4;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* ===== Day Detail Modal ===== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 500px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modalTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.modalSubtitle {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  margin-left: 26px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+.closeBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.emptyModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 20px;
+  text-align: center;
+}
+.emptyModal p {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.emptyModal span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.modalTaskList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modalTask {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+.modalTask:hover {
+  border-color: var(--border-focus);
+}
+.modalTask.modalTaskDone {
+  opacity: 0.55;
+}
+.modalTask.modalTaskDone .modalTaskTitle {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.modalTaskInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.modalTaskTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.modalTaskMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.modalTaskSubject {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.modalTaskTime {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.modalTaskTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--accent-violet);
+  font-size: 0.68rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  border-radius: var(--radius-full);
+}

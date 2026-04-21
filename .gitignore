@@ -1,0 +1,98 @@
+# ===========================
+# Dependencies
+# ===========================
+node_modules/
+.pnp
+.pnp.js
+
+# ===========================
+# Environment Variables (NEVER commit these)
+# ===========================
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Keep templates
+!.env.template
+!.env.local.template
+!.env.example
+
+# ===========================
+# Build Outputs
+# ===========================
+dist/
+build/
+.next/
+out/
+
+# ===========================
+# TypeScript
+# ===========================
+*.tsbuildinfo
+next-env.d.ts
+
+# ===========================
+# Logs
+# ===========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===========================
+# Testing & Coverage
+# ===========================
+coverage/
+.nyc_output/
+
+# ===========================
+# OS Files
+# ===========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===========================
+# Editor / IDE
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.classpath
+.settings/
+
+# ===========================
+# Vercel
+# ===========================
+.vercel
+
+# ===========================
+# Agents / Skills (local tooling)
+# ===========================
+.agents/
+skills-lock.json
+
+# ===========================
+# Misc
+# ===========================
+.cache/
+.parcel-cache/
+.turbo/
+*.pem
